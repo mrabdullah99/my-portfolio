@@ -74,8 +74,8 @@ export default function ContactSection() {
         />
       ),
       title: "Email",
-      content: "contact@example.com",
-      href: "mailto:contact@example.com",
+      content: "mabdullahdev01@gmail.com",
+      href: "mailto:mabdullahdev01@gmail.com",
       gradient: "from-[#0fbfff] to-blue-500",
     },
     {
@@ -88,8 +88,8 @@ export default function ContactSection() {
         />
       ),
       title: "Phone",
-      content: "+92 300 1234567",
-      href: "tel:+923001234567",
+      content: "+92 327 8659871",
+      href: "tel:+923278659871",
       gradient: "from-purple-500 to-blue-500",
     },
     {
@@ -110,7 +110,7 @@ export default function ContactSection() {
         </>
       ),
       title: "Location",
-      content: "Lahore, Pakistan",
+      content: "Abbottabad, Pakistan",
       gradient: "from-blue-500 to-[#0fbfff]",
     },
   ];
@@ -385,7 +385,7 @@ export default function ContactSection() {
                       required
                       disabled={isSubmitting}
                       className="contact-input w-full px-4 py-3 bg-[#081d2c] text-white rounded-lg border border-[#0fbfff]/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="John Doe"
+                      placeholder="Enter your name"
                     />
                   </div>
 
@@ -405,7 +405,7 @@ export default function ContactSection() {
                       required
                       disabled={isSubmitting}
                       className="contact-input w-full px-4 py-3 bg-[#081d2c] text-white rounded-lg border border-[#0fbfff]/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-                      placeholder="john@example.com"
+                      placeholder="Enter your email"
                     />
                   </div>
 
