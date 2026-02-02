@@ -14,36 +14,28 @@ export default function HeroSection() {
     "Backend Developer",
     "Flutter Developer",
   ];
-
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 100;
     const pauseTime = 2000;
 
-    const handleTyping = () => {
-      const currentText = roles[currentIndex];
+    let timeout;
 
-      if (!isDeleting && charIndex === currentText.length) {
-        setTimeout(() => setIsDeleting(true), pauseTime);
-        return;
-      }
+    const currentText = roles[currentIndex];
 
-      if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setCurrentIndex((prev) => (prev + 1) % roles.length);
-        return;
-      }
-
-      const timeout = setTimeout(() => {
+    if (!isDeleting && charIndex === currentText.length) {
+      timeout = setTimeout(() => setIsDeleting(true), pauseTime);
+    } else if (isDeleting && charIndex === 0) {
+      setIsDeleting(false);
+      setCurrentIndex((prev) => (prev + 1) % roles.length);
+    } else {
+      timeout = setTimeout(() => {
         setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
         setCurrentRole(
           currentText.substring(0, charIndex + (isDeleting ? -1 : 1)),
         );
       }, typingSpeed);
+    }
 
-      return () => clearTimeout(timeout);
-    };
-
-    const timeout = handleTyping();
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, currentIndex, roles]);
 
@@ -275,50 +267,55 @@ export default function HeroSection() {
           text-shadow: 0 0 10px rgba(15, 191, 255, 0.5);
         }
       `}</style>
-
       <section
         id="home"
         className="min-h-screen bg-[#081d2c] pt-16 flex items-center relative overflow-hidden"
       >
-        {/* Static Background - NO animations that interfere with text */}
+        {/* Static Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-[#0fbfff] rounded-full opacity-3 blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-96 h-96 bg-[#0fbfff] rounded-full opacity-10 blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-purple-500 rounded-full opacity-3 blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500 rounded-full opacity-3 blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full py-12 lg:py-0">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Side - Content */}
-            <div className="space-y-8">
-              {/* Main Heading - Crystal Clear Name */}
+            <div className="space-y-6 md:space-y-8">
+              {/* Main Heading */}
               <div
                 className="animate-fadeInLeft opacity-0"
                 style={{ animationDelay: "0.2s" }}
               >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                  <span className="block text-lg md:text-xl text-white/70 mt-4 font-normal">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                  <span className="block text-base sm:text-lg md:text-xl text-white/70 mb-2 md:mb-4 font-normal">
                     Hi, I'm
                   </span>
-                  {/* <span className="name-text block">Muhammad Abdullah</span> */}
-                  <span className="name text-white/90">
-                    Muhammad <span className="name-accent">Abdullah</span>
+                  <span className="name text-white/90 block">
+                    Muhammad{" "}
+                    <span className="name-accent block sm:inline mt-2 sm:mt-0">
+                      Abdullah
+                    </span>
                   </span>
                 </h1>
               </div>
 
-              {/* Beautiful Typewriter Effect Line */}
+              {/* Typewriter Effect */}
               <div
                 className="animate-fadeInLeft opacity-0"
                 style={{ animationDelay: "0.3s" }}
               >
-                <div className="typewriter-line">
-                  <span className="role-bracket">&lt;</span>
-                  <span className="text-white/90 font-medium text-xl md:text-2xl min-w-[280px]">
+                <div className="typewriter-line flex items-center flex-wrap">
+                  <span className="role-bracket text-lg sm:text-xl md:text-2xl">
+                    &lt;
+                  </span>
+                  <span className="text-white/90 font-medium text-base sm:text-lg md:text-xl lg:text-2xl px-2 min-w-[200px] sm:min-w-[280px]">
                     {currentRole || "\u00A0"}
                   </span>
                   <span className="typewriter-cursor"></span>
-                  <span className="role-bracket">/&gt;</span>
+                  <span className="role-bracket text-lg sm:text-xl md:text-2xl">
+                    /&gt;
+                  </span>
                 </div>
               </div>
 
@@ -327,7 +324,7 @@ export default function HeroSection() {
                 className="animate-fadeInLeft opacity-0"
                 style={{ animationDelay: "0.4s" }}
               >
-                <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl">
                   Crafting exceptional digital experiences with modern
                   technologies. Specialized in building scalable web
                   applications that blend beautiful design with powerful
@@ -337,14 +334,14 @@ export default function HeroSection() {
 
               {/* Tech Stack Pills */}
               <div
-                className="flex flex-wrap gap-3 animate-fadeInLeft opacity-0"
+                className="flex flex-wrap gap-2 sm:gap-3 animate-fadeInLeft opacity-0"
                 style={{ animationDelay: "0.5s" }}
               >
                 {["React", "Node.js", "Express.js", "MongoDB", "Flutter"].map(
                   (tech) => (
                     <span
                       key={tech}
-                      className="px-4 py-2 glass-morphism rounded-lg text-[#0fbfff] text-sm font-medium hover:bg-[#0fbfff]/10 hover:border-[#0fbfff]/40 transition-all duration-300 border border-[#0fbfff]/20"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 glass-morphism rounded-lg text-[#0fbfff] text-xs sm:text-sm font-medium hover:bg-[#0fbfff]/10 hover:border-[#0fbfff]/40 transition-all duration-300 border border-[#0fbfff]/20"
                     >
                       {tech}
                     </span>
@@ -354,16 +351,16 @@ export default function HeroSection() {
 
               {/* CTA Buttons */}
               <div
-                className="flex flex-wrap gap-4 animate-fadeInLeft opacity-0"
+                className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 animate-fadeInLeft opacity-0"
                 style={{ animationDelay: "0.6s" }}
               >
                 <a
                   href="#projects"
-                  className="group px-8 py-4 bg-gradient-to-r from-[#0fbfff] to-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-[#0fbfff]/30 hover:shadow-xl hover:shadow-[#0fbfff]/50 transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                  className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#0fbfff] to-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-[#0fbfff]/30 hover:shadow-xl hover:shadow-[#0fbfff]/50 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <span>View My Work</span>
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -379,11 +376,11 @@ export default function HeroSection() {
 
                 <a
                   href="#contact"
-                  className="group px-8 py-4 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                  className="group px-6 sm:px-8 py-3 sm:py-4 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <span>Let's Talk</span>
                   <svg
-                    className="w-5 h-5 group-hover:rotate-12 transition-transform"
+                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -400,26 +397,26 @@ export default function HeroSection() {
             </div>
 
             {/* Right Side - 3D Animated Scene */}
-            <div className="relative h-[600px] hidden lg:block">
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
               <div
                 className="animate-fadeInRight opacity-0 h-full"
                 style={{ animationDelay: "0.3s" }}
               >
                 {/* Central Code Window */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px]">
-                  <div className="glass-morphism rounded-2xl p-6 shadow-2xl shadow-[#0fbfff]/20 animate-float">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[400px] px-4 lg:px-0">
+                  <div className="glass-morphism rounded-2xl p-4 sm:p-6 shadow-2xl shadow-[#0fbfff]/20 animate-float">
                     {/* Window Header */}
                     <div className="flex items-center gap-2 mb-4">
                       <div className="flex gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
                       </div>
                       <div className="text-white/50 text-xs ml-2">App.jsx</div>
                     </div>
 
                     {/* Code Content */}
-                    <div className="code-block text-white/80 space-y-2">
+                    <div className="code-block text-white/80 space-y-2 text-xs sm:text-sm">
                       <div>
                         <span className="text-purple-400">const</span>{" "}
                         <span className="text-blue-300">developer</span> = {`{`}
@@ -578,7 +575,7 @@ export default function HeroSection() {
                   ))}
                 </div>
 
-                {/* Gradient Orbs - Static */}
+                {/* Gradient Orbs */}
                 <div className="absolute top-16 right-32 w-20 h-20 rounded-full bg-gradient-to-br from-[#0fbfff] to-purple-500 opacity-20 blur-xl"></div>
                 <div className="absolute bottom-24 left-32 w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-[#0fbfff] opacity-15 blur-xl"></div>
               </div>
