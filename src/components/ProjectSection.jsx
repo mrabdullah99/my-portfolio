@@ -10,6 +10,7 @@ import amazonClone from "../assets/amazon-clone.png";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -129,10 +130,18 @@ export default function ProjectsSection() {
     { name: "Frontend", value: "frontend", icon: "🎨" },
   ];
 
-  const filteredProjects =
+  const allFilteredProjects =
     activeFilter === "all"
       ? projects
       : projects.filter((project) => project.category === activeFilter);
+
+  // Show 3 projects on mobile initially, all on desktop
+  const displayedProjects = showAllProjects
+    ? allFilteredProjects
+    : allFilteredProjects.slice(0, 3);
+
+  // Check if there are more projects to show
+  const hasMoreProjects = allFilteredProjects.length > 3;
 
   return (
     <>
@@ -272,7 +281,10 @@ export default function ProjectsSection() {
             {filters.map((filter) => (
               <button
                 key={filter.value}
-                onClick={() => setActiveFilter(filter.value)}
+                onClick={() => {
+                  setActiveFilter(filter.value);
+                  setShowAllProjects(false); // Reset to show initial 3 when filter changes
+                }}
                 className={`filter-btn px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
                   activeFilter === filter.value
                     ? "active"
@@ -287,7 +299,7 @@ export default function ProjectsSection() {
 
           {/* Projects Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial="hidden"
@@ -375,6 +387,44 @@ export default function ProjectsSection() {
             ))}
           </div>
 
+          {/* Show More/Less Button - Only visible on mobile when there are more projects */}
+          {hasMoreProjects && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              variants={fadeInUp}
+              className="text-center mt-8 lg:hidden"
+            >
+              <button
+                onClick={() => setShowAllProjects(!showAllProjects)}
+                className="group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+              >
+                <span>
+                  {showAllProjects
+                    ? "Show Less"
+                    : `Show All (${allFilteredProjects.length} Projects)`}
+                </span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    showAllProjects ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </motion.div>
+          )}
+
           {/* Bottom CTA */}
           <motion.div
             initial="hidden"
@@ -393,6 +443,8 @@ export default function ProjectsSection() {
               </p>
               <a
                 href="https://github.com/mrabdullah99"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0fbfff] to-blue-500 text-white font-semibold rounded-lg shadow-lg shadow-[#0fbfff]/30 hover:shadow-xl hover:shadow-[#0fbfff]/50 transform hover:scale-105 transition-all duration-300"
               >
                 <svg

@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import profileImg from "../assets/profile-pic.png";
 
 export default function AboutSection() {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -22,6 +25,22 @@ export default function AboutSection() {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1 },
   };
+
+  const allSkills = [
+    { name: "React.js", level: 90, icon: "⚛️" },
+    { name: "Node.js", level: 85, icon: "🟢" },
+    { name: "Express.js", level: 85, icon: "🚀" },
+    { name: "Flutter", level: 85, icon: "🌀" },
+    { name: "JavaScript", level: 90, icon: "📜" },
+    { name: "Java", level: 85, icon: "☕" },
+    { name: "MongoDB", level: 85, icon: "🍃" },
+    { name: "MySQL", level: 75, icon: "🐬" },
+    { name: "Git", level: 88, icon: "📦" },
+    { name: "Tailwind CSS", level: 95, icon: "🎨" },
+  ];
+
+  // Show 6 skills on mobile initially, all on desktop
+  const displayedSkills = showAllSkills ? allSkills : allSkills.slice(0, 6);
 
   return (
     <>
@@ -298,7 +317,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Skills Section - OPTION 2: Modern Horizontal Bars */}
+          {/* Skills Section */}
           <div className="mt-20">
             <motion.div
               initial="hidden"
@@ -317,19 +336,7 @@ export default function AboutSection() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {[
-                { name: "React.js", level: 90, icon: "⚛️" },
-                { name: "Node.js", level: 85, icon: "🟢" },
-                { name: "Express.js", level: 85, icon: "🚀" },
-                { name: "Flutter", level: 85, icon: "🌀" },
-
-                { name: "JavaScript", level: 90, icon: "📜" },
-                { name: "Java", level: 85, icon: "☕" },
-                { name: "MongoDB", level: 85, icon: "🍃" },
-                { name: "MySQL", level: 75, icon: "🐬" },
-                { name: "Git", level: 88, icon: "📦" },
-                { name: "Tailwind CSS", level: 95, icon: "🎨" },
-              ].map((skill, index) => (
+              {displayedSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   initial="hidden"
@@ -382,6 +389,42 @@ export default function AboutSection() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Show More/Less Button - Only visible on mobile when there are more skills */}
+            {allSkills.length > 6 && (
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+                variants={fadeInUp}
+                className="text-center mt-8 md:hidden"
+              >
+                <button
+                  onClick={() => setShowAllSkills(!showAllSkills)}
+                  className="group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+                >
+                  <span>
+                    {showAllSkills ? "Show Less" : "Show More Skills"}
+                  </span>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-300 ${
+                      showAllSkills ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </motion.div>
+            )}
           </div>
 
           {/* What I Do / Specialties */}

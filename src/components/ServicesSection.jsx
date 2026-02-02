@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ServicesSection() {
+  const [showAllServices, setShowAllServices] = useState(false);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
@@ -11,7 +14,7 @@ export default function ServicesSection() {
     visible: { opacity: 1, scale: 1 },
   };
 
-  const services = [
+  const allServices = [
     {
       id: 1,
       title: "Frontend Development",
@@ -105,6 +108,11 @@ export default function ServicesSection() {
       gradient: "from-blue-500 to-purple-500",
     },
   ];
+
+  // Show 2 services on mobile initially, all on desktop
+  const displayedServices = showAllServices
+    ? allServices
+    : allServices.slice(0, 2);
 
   return (
     <>
@@ -206,7 +214,7 @@ export default function ServicesSection() {
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+            {displayedServices.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial="hidden"
@@ -260,6 +268,42 @@ export default function ServicesSection() {
               </motion.div>
             ))}
           </div>
+
+          {/* Show More/Less Button - Only visible on mobile when there are more services */}
+          {allServices.length > 2 && (
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              variants={fadeInUp}
+              className="text-center mt-8 md:hidden"
+            >
+              <button
+                onClick={() => setShowAllServices(!showAllServices)}
+                className="group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+              >
+                <span>
+                  {showAllServices ? "Show Less" : "Show More Services"}
+                </span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-300 ${
+                    showAllServices ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </motion.div>
+          )}
 
           {/* CTA Section */}
           <motion.div
