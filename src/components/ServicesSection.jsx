@@ -17,29 +17,6 @@ export default function ServicesSection() {
   const allServices = [
     {
       id: 1,
-      title: "Backend Development",
-      description:
-        "Building robust and scalable server-side applications with Node.js and database systems.",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-          />
-        </svg>
-      ),
-      features: ["Node.js & Express", "MongoDB & PostgreSQL", "RESTful APIs"],
-      gradient: "from-blue-500 to-purple-500",
-    },
-    {
-      id: 2,
       title: "Full Stack Development",
       description:
         "End-to-end web application development with seamless integration and deployment.",
@@ -62,10 +39,10 @@ export default function ServicesSection() {
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      id: 3,
-      title: "API Integration",
+      id: 2,
+      title: "Backend Development",
       description:
-        "Integrating third-party APIs and services to extend functionality.",
+        "Building robust and scalable server-side applications with Node.js and database systems.",
       icon: (
         <svg
           className="w-8 h-8"
@@ -77,15 +54,15 @@ export default function ServicesSection() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
           />
         </svg>
       ),
-      features: ["REST APIs", "Payment Gateways", "Social Media APIs"],
+      features: ["Node.js & Express", "MongoDB & PostgreSQL", "RESTful APIs"],
       gradient: "from-blue-500 to-purple-500",
     },
     {
-      id: 4,
+      id: 3,
       title: "Frontend Development",
       description:
         "Creating responsive and interactive user interfaces using modern frameworks with pixel-perfect designs.",
@@ -106,6 +83,29 @@ export default function ServicesSection() {
       ),
       features: ["React.js & Next.js", "Tailwind CSS", "Responsive Design"],
       gradient: "from-[#0fbfff] to-blue-500",
+    },
+    {
+      id: 4,
+      title: "API Integration",
+      description:
+        "Integrating third-party APIs and services to extend functionality.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      ),
+      features: ["REST APIs", "Payment Gateways", "Social Media APIs"],
+      gradient: "from-blue-500 to-purple-500",
     },
   ];
 
