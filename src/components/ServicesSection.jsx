@@ -17,29 +17,6 @@ export default function ServicesSection() {
   const allServices = [
     {
       id: 1,
-      title: "Frontend Development",
-      description:
-        "Creating responsive and interactive user interfaces using modern frameworks with pixel-perfect designs.",
-      icon: (
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-      ),
-      features: ["React.js & Next.js", "Tailwind CSS", "Responsive Design"],
-      gradient: "from-[#0fbfff] to-blue-500",
-    },
-    {
-      id: 2,
       title: "Backend Development",
       description:
         "Building robust and scalable server-side applications with Node.js and database systems.",
@@ -62,7 +39,7 @@ export default function ServicesSection() {
       gradient: "from-blue-500 to-purple-500",
     },
     {
-      id: 3,
+      id: 2,
       title: "Full Stack Development",
       description:
         "End-to-end web application development with seamless integration and deployment.",
@@ -85,7 +62,7 @@ export default function ServicesSection() {
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      id: 4,
+      id: 3,
       title: "API Integration",
       description:
         "Integrating third-party APIs and services to extend functionality.",
@@ -106,6 +83,29 @@ export default function ServicesSection() {
       ),
       features: ["REST APIs", "Payment Gateways", "Social Media APIs"],
       gradient: "from-blue-500 to-purple-500",
+    },
+    {
+      id: 4,
+      title: "Frontend Development",
+      description:
+        "Creating responsive and interactive user interfaces using modern frameworks with pixel-perfect designs.",
+      icon: (
+        <svg
+          className="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          />
+        </svg>
+      ),
+      features: ["React.js & Next.js", "Tailwind CSS", "Responsive Design"],
+      gradient: "from-[#0fbfff] to-blue-500",
     },
   ];
 
