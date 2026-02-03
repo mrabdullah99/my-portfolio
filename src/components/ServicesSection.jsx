@@ -109,11 +109,6 @@ export default function ServicesSection() {
     },
   ];
 
-  // Show 2 services on mobile initially, all on desktop
-  const displayedServices = showAllServices
-    ? allServices
-    : allServices.slice(0, 2);
-
   return (
     <>
       <style>{`
@@ -214,7 +209,7 @@ export default function ServicesSection() {
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {displayedServices.map((service, index) => (
+            {allServices.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial="hidden"
@@ -222,7 +217,9 @@ export default function ServicesSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 variants={scaleIn}
-                className="service-card glass-morphism rounded-xl p-6 border border-[#0fbfff]/20 hover:border-[#0fbfff]/50"
+                className={`service-card glass-morphism rounded-xl p-6 border border-[#0fbfff]/20 hover:border-[#0fbfff]/50 ${
+                  index >= 2 && !showAllServices ? "hidden md:block" : ""
+                }`}
               >
                 {/* Icon */}
                 <div

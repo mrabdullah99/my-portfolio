@@ -39,9 +39,6 @@ export default function AboutSection() {
     { name: "Tailwind CSS", level: 95, icon: "🎨" },
   ];
 
-  // Show 6 skills on mobile initially, all on desktop
-  const displayedSkills = showAllSkills ? allSkills : allSkills.slice(0, 6);
-
   return (
     <>
       <style>{`
@@ -336,7 +333,7 @@ export default function AboutSection() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {displayedSkills.map((skill, index) => (
+              {allSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   initial="hidden"
@@ -344,7 +341,7 @@ export default function AboutSection() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   variants={fadeInUp}
-                  className="group relative"
+                  className={`group relative ${index >= 6 && !showAllSkills ? "hidden md:block" : ""}`}
                 >
                   {/* Skill Header */}
                   <div className="flex items-center justify-between mb-3">

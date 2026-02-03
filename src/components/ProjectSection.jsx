@@ -135,13 +135,9 @@ export default function ProjectsSection() {
       ? projects
       : projects.filter((project) => project.category === activeFilter);
 
-  // Show 3 projects on mobile initially, all on desktop
-  const displayedProjects = showAllProjects
-    ? allFilteredProjects
-    : allFilteredProjects.slice(0, 3);
-
   // Check if there are more projects to show
-  const hasMoreProjects = allFilteredProjects.length > 3;
+  const hasMoreOnMobile = allFilteredProjects.length > 3;
+  const hasMoreOnMdAndAbove = allFilteredProjects.length > 6;
 
   return (
     <>
@@ -299,7 +295,7 @@ export default function ProjectsSection() {
 
           {/* Projects Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedProjects.map((project, index) => (
+            {allFilteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial="hidden"
@@ -307,7 +303,15 @@ export default function ProjectsSection() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 variants={scaleIn}
-                className="project-card glass-morphism rounded-xl overflow-hidden border border-[#0fbfff]/20 hover:border-[#0fbfff]/50"
+                className={`project-card glass-morphism rounded-xl overflow-hidden border border-[#0fbfff]/20 hover:border-[#0fbfff]/50 ${
+                  !showAllProjects
+                    ? index < 3
+                      ? ""
+                      : index < 6
+                        ? "hidden md:block"
+                        : "hidden"
+                    : ""
+                }`}
               >
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden bg-[#112e42]">
@@ -387,44 +391,75 @@ export default function ProjectsSection() {
             ))}
           </div>
 
-          {/* Show More/Less Button - Only visible on mobile when there are more projects */}
-          {hasMoreProjects && (
+          {/* Show More/Less Button */}
+          {(hasMoreOnMobile || hasMoreOnMdAndAbove) && (
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6 }}
               variants={fadeInUp}
-              className="text-center mt-8 lg:hidden"
+              className="text-center mt-8"
             >
-              <button
-                onClick={() => setShowAllProjects(!showAllProjects)}
-                className="group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
-              >
-                <span>
-                  {showAllProjects
-                    ? "Show Less"
-                    : `Show All (${allFilteredProjects.length} Projects)`}
-                </span>
-                <svg
-                  className={`w-5 h-5 transition-transform duration-300 ${
-                    showAllProjects ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+              {/* Mobile: Show if more than 3 projects */}
+              {hasMoreOnMobile && (
+                <button
+                  onClick={() => setShowAllProjects(!showAllProjects)}
+                  className="md:hidden group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+                  <span>
+                    {showAllProjects
+                      ? "Show Less"
+                      : `Show All (${allFilteredProjects.length} Projects)`}
+                  </span>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-300 ${
+                      showAllProjects ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              )}
+
+              {/* MD and above: Show if more than 6 projects */}
+              {hasMoreOnMdAndAbove && (
+                <button
+                  onClick={() => setShowAllProjects(!showAllProjects)}
+                  className="hidden md:flex group px-8 py-3 glass-morphism text-white font-semibold rounded-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-300 items-center gap-2 mx-auto"
+                >
+                  <span>
+                    {showAllProjects
+                      ? "Show Less"
+                      : `Show All (${allFilteredProjects.length} Projects)`}
+                  </span>
+                  <svg
+                    className={`w-5 h-5 transition-transform duration-300 ${
+                      showAllProjects ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              )}
             </motion.div>
           )}
-
           {/* Bottom CTA */}
           <motion.div
             initial="hidden"
