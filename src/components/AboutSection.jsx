@@ -30,13 +30,13 @@ export default function AboutSection() {
     { name: "React.js", level: 90, icon: "⚛️" },
     { name: "Node.js", level: 85, icon: "🟢" },
     { name: "Express.js", level: 85, icon: "🚀" },
-    { name: "Flutter", level: 85, icon: "🌀" },
     { name: "JavaScript", level: 90, icon: "📜" },
-    { name: "Java", level: 85, icon: "☕" },
-    { name: "MongoDB", level: 85, icon: "🍃" },
-    { name: "MySQL", level: 75, icon: "🐬" },
-    { name: "Git", level: 88, icon: "📦" },
+    { name: "MongoDB", level: 90, icon: "🍃" },
+    { name: "Flutter", level: 85, icon: "🌀" },
+    { name: "Firebase", level: 80, icon: "🔥" },
+    { name: "Git", level: 85, icon: "📦" },
     { name: "Tailwind CSS", level: 95, icon: "🎨" },
+    { name: "Postman", level: 95, icon: "📬" },
   ];
 
   return (
@@ -216,7 +216,7 @@ export default function AboutSection() {
                 </h3>
                 <div className="h-1 w-24 bg-gradient-to-r from-[#0fbfff] to-purple-500 rounded-full mb-6"></div>
                 <p className="text-lg text-white/80 leading-relaxed mb-4">
-                  I'm a passionate Full Stack Web Developer who builds modern,
+                  I'm a passionate Full Stack Developer who builds modern,
                   scalable web applications with a strong focus on clean
                   architecture and user experience.
                 </p>

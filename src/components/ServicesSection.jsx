@@ -19,7 +19,7 @@ export default function ServicesSection() {
       id: 1,
       title: "Full Stack Development",
       description:
-        "End-to-end web application development with seamless integration and deployment.",
+        "End-to-end application development with seamless integration, deployment, and authentication.",
       icon: (
         <svg
           className="w-8 h-8"
@@ -35,14 +35,19 @@ export default function ServicesSection() {
           />
         </svg>
       ),
-      features: ["MERN Stack", "Cloud Deployment", "Authentication"],
+      features: [
+        "MERN Stack",
+        "App Development",
+        "Cloud Deployment",
+        "Authentication",
+      ],
       gradient: "from-purple-500 to-pink-500",
     },
     {
       id: 2,
       title: "Backend Development",
       description:
-        "Building robust and scalable server-side applications with Node.js and database systems.",
+        "Building robust and scalable server-side applications with efficient database management and API design.",
       icon: (
         <svg
           className="w-8 h-8"
@@ -58,7 +63,12 @@ export default function ServicesSection() {
           />
         </svg>
       ),
-      features: ["Node.js & Express", "MongoDB & PostgreSQL", "RESTful APIs"],
+      features: [
+        "Node.js & Express",
+        "MongoDB & PostgreSQL",
+        "Firebase",
+        "RESTful APIs",
+      ],
       gradient: "from-blue-500 to-purple-500",
     },
     {
@@ -81,7 +91,12 @@ export default function ServicesSection() {
           />
         </svg>
       ),
-      features: ["React.js & Next.js", "Tailwind CSS", "Responsive Design"],
+      features: [
+        "React.js & Next.js",
+        "Tailwind CSS",
+        "Flutter",
+        "Responsive Design",
+      ],
       gradient: "from-[#0fbfff] to-blue-500",
     },
     {
