@@ -10,9 +10,9 @@ export default function HeroSection() {
     "Software Engineer",
     "Full Stack Developer",
     "MERN Stack Developer",
-    "Frontend Specialist",
-    "Backend Developer",
     "Flutter Developer",
+    "AI / ML Enthusiast",
+    "Backend Developer",
   ];
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 100;

@@ -16,6 +16,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Services", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
@@ -243,7 +244,7 @@ export default function Navbar() {
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100"
+              ? "max-h-[32rem] opacity-100"
               : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >

@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
+import ExperienceSection from "./components/ExperienceSection";
 import ServicesSection from "./components/ServicesSection";
 import ProjectsSection from "./components/ProjectSection";
 import ContactSection from "./components/ContactSection";
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <ServicesSection />
       <ProjectsSection />
       <ContactSection />
