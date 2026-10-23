@@ -9,75 +9,49 @@ export default function ExperienceSection() {
   const experiences = [
     {
       id: 1,
-      role: "Software Developer",
-      company: "AUXIO One (Australian Client Project)",
-      type: "Contract / Project",
-      period: "2026 — Present",
-      location: "Remote · Australia",
+      role: "Full-Stack Developer",
+      company: "Firnas",
+      type: "Full-time",
+      period: "5 months",
+      location: "Pakistan",
       description:
-        "Contributing to AUXIO One, a configurable business operations platform for Australian service organisations spanning NDIS, aged care, and healthcare staffing.",
+        "Shipped multiple internal products with a focus on clean architecture, secure authentication, and maintainable REST APIs.",
       highlights: [
-        "Building modular workflows for organisation setup, CRM, participant onboarding, workforce compliance, and rostering",
-        "Implementing role-based permissions, approvals, incident management, and document lifecycle tracking",
-        "Supporting progress notes, Smart Notes assistance, notifications, reporting, and finance hand-off (e.g. Xero)",
+        "Built a Document Generator for invoices, experience letters, and business proposals with multiple templates, live preview, and PDF export",
+        "Built Fleet Manager, a fleet management app for drivers, vehicles, routes, trips, fuel, accidents, and compliance documents, with separate admin and driver portals",
+        "Implemented secure authentication, password reset, approval workflows, and expiry notifications across these products",
+        "Developed the company's official website",
       ],
       tech: [
+        "Next.js",
         "React",
+        "Redux Toolkit",
+        "Tailwind CSS",
         "Node.js",
-        "Express.js",
+        "Express",
+        "PostgreSQL",
         "MongoDB",
-        "REST APIs",
-        "RBAC",
-        "Azure DevOps",
       ],
     },
     {
       id: 2,
-      role: "Machine Learning Intern",
-      company: "Arch Technologies",
-      type: "Internship",
-      period: "Jan 2026 — Mar 2026",
-      location: "Onsite",
+      role: "Full-Stack Developer",
+      company: "AUXIO One (Australian Client)",
+      type: "Freelance",
+      period: "Freelance",
+      location: "Remote · Australia",
       description:
-        "Completed an 8-week Machine Learning internship focused on end-to-end supervised learning pipelines, model evaluation, and professional ML workflows.",
+        "Built a multi-tenant SaaS platform for an Australian disability-services client to manage organizations, teams, and participants.",
       highlights: [
-        "Built Spam Email Detection with TF-IDF and classical classifiers",
-        "Trained MNIST digit recognition with Logistic Regression and MLP (97.6% accuracy)",
-        "Developed California Housing price prediction with Linear Regression, Random Forest, and Gradient Boosting",
-        "Implemented Iris multi-class classification with cross-validation and confusion-matrix analysis",
+        "Built a multi-tenant SaaS platform that lets disability service providers manage organizations, teams, and participants",
+        "Implemented role-based access control, module-based permissions, and participant onboarding through scalable REST APIs",
       ],
       tech: [
-        "Python",
-        "scikit-learn",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "Seaborn",
-        "Jupyter",
-      ],
-    },
-    {
-      id: 3,
-      role: "Full Stack Developer",
-      company: "Freelance & Academic Projects",
-      type: "Independent",
-      period: "2023 — Present",
-      location: "Remote",
-      description:
-        "Delivering full-stack web and mobile applications using the MERN stack and Flutter, from e-commerce and food delivery to AI-powered tools.",
-      highlights: [
-        "Shipped production-ready apps with auth, payments, admin dashboards, and REST APIs",
-        "Built AgriLens AI with Flutter, FastAPI, EfficientNetB0, and Grad-CAM explainability",
-        "Developed Doc Generator with JWT auth, live document previews, and PDF export",
-      ],
-      tech: [
-        "React",
-        "Flutter",
-        "Node.js",
-        "MongoDB",
-        "FastAPI",
-        "TensorFlow",
-        "Tailwind CSS",
+        "Next.js",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma",
+        "TypeScript",
       ],
     },
   ];
@@ -147,8 +121,8 @@ export default function ExperienceSection() {
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[#0fbfff] to-purple-500 mx-auto rounded-full mb-6"></div>
             <p className="text-white/70 max-w-2xl mx-auto text-lg">
-              Professional roles and projects that shaped my skills in full-stack
-              development, mobile apps, and machine learning
+              Production web applications built with modern full-stack
+              technologies for clients and companies
             </p>
           </motion.div>
 

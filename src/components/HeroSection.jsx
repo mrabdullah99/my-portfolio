@@ -7,11 +7,11 @@ export default function HeroSection() {
   const [charIndex, setCharIndex] = useState(0);
 
   const roles = [
-    "Software Engineer",
-    "Full Stack Developer",
-    "MERN Stack Developer",
-    "Flutter Developer",
-    "AI / ML Enthusiast",
+    "Full-Stack Web Developer",
+    "Next.js Developer",
+    "NestJS Developer",
+    "React Developer",
+    "TypeScript Developer",
     "Backend Developer",
   ];
   useEffect(() => {

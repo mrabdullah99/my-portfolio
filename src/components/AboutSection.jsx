@@ -27,18 +27,18 @@ export default function AboutSection() {
   };
 
   const allSkills = [
+    { name: "TypeScript", level: 90, icon: "📘" },
+    { name: "Next.js", level: 90, icon: "▲" },
     { name: "React.js", level: 90, icon: "⚛️" },
-    { name: "Node.js", level: 85, icon: "🟢" },
+    { name: "Node.js", level: 88, icon: "🟢" },
+    { name: "NestJS", level: 85, icon: "🪺" },
     { name: "Express.js", level: 85, icon: "🚀" },
-    { name: "JavaScript", level: 90, icon: "📜" },
-    { name: "MongoDB", level: 90, icon: "🍃" },
-    { name: "Flutter", level: 85, icon: "🌀" },
-    { name: "Python", level: 85, icon: "🐍" },
-    { name: "TensorFlow / Keras", level: 80, icon: "🧠" },
-    { name: "FastAPI", level: 80, icon: "⚡" },
-    { name: "Firebase", level: 80, icon: "🔥" },
-    { name: "Git", level: 85, icon: "📦" },
+    { name: "PostgreSQL", level: 85, icon: "🐘" },
+    { name: "Prisma", level: 85, icon: "◆" },
+    { name: "MongoDB", level: 88, icon: "🍃" },
+    { name: "Redux Toolkit", level: 85, icon: "🔄" },
     { name: "Tailwind CSS", level: 95, icon: "🎨" },
+    { name: "Git", level: 90, icon: "📦" },
     { name: "Postman", level: 95, icon: "📬" },
   ];
 
@@ -214,26 +214,25 @@ export default function AboutSection() {
                 variants={fadeInRight}
               >
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Full Stack Developer &{" "}
+                  Full-Stack Web Developer &{" "}
                   <span className="gradient-text">Problem Solver</span>
                 </h3>
                 <div className="h-1 w-24 bg-gradient-to-r from-[#0fbfff] to-purple-500 rounded-full mb-6"></div>
                 <p className="text-lg text-white/80 leading-relaxed mb-4">
-                  I'm a passionate Full Stack Developer who builds modern,
-                  scalable web applications with a strong focus on clean
-                  architecture and user experience.
+                  Full-stack developer building production web applications with
+                  Next.js, React, Node.js, NestJS, PostgreSQL, Prisma, and
+                  TypeScript.
                 </p>
 
                 <p className="text-lg text-white/70 leading-relaxed mb-4">
-                  With 3+ years of experience, I've worked on projects ranging
-                  from e-commerce platforms to SaaS applications, turning ideas
-                  into reliable, high-quality solutions.
+                  Delivered AUXIO One, a multi-tenant SaaS platform for an
+                  Australian disability-services client, and shipped multiple
+                  internal products during a 5-month role at Firnas.
                 </p>
 
                 <p className="text-lg text-white/70 leading-relaxed">
-                  I enjoy solving complex problems, learning new technologies,
-                  and delivering products that are both functional and visually
-                  polished.
+                  Focused on clean architecture, secure authentication, and
+                  maintainable REST APIs.
                 </p>
               </motion.div>
 
